@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
+    <link rel="js" href="JS/script.js">
+
+    <title></title>
+ </head>   
+ <body>
+    <header>
+      <iframe src="header.html" frameborder="0" width="100%" height="200"></iframe>
+    </header>
+    <section>
+    <iframe src="sidebar.html" frameborder="0" width="200" height="500"></iframe>
+    </section>
+
+    <section>
+        <form id="Registrationform">
+            
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name" ><br><br>
+           
+            
+            <label for="email">Email:</label><br>
+            <input type="Email" id="email" name="Email" required placeholder="example@gmail.com"><br><br>
+        
+            
+            <label for="StudentID">Student ID:</label><br>
+            <input type="text" id="StudentID" name="StudentID" required pattern="^[0-9]{4}$" placeholder="XXXX"><br><br>
+
+                         
+            <label for="event">Eevent Name:</label><br>
+            <input type="text" id="event" name="event" required placeholder="Enter The name of the event"><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required placeholder="A brief description of the event"><br><br>
+
+
+            <label for="halls"> Select Hall:</label><br>
+            <select id="event" name="event" required>
+                <option value="" disabled selected>--choose a Hall--</option>
+                <option value="hall01">Room 3</option>   
+                <option value="hall02">Room 5</option>
+                <option value="hall03">Pbl 4</option>
+                <option value="hall04">Gaming hall</option>
+                <option value="hall05">Network Lab</option>
+                <option value="hall06">Main hall</option>
+                <option value="hall07">Pbl 23</option>
+                <option value="hall08">Room 14</option>
+            </select><br><br>
+            
+            <label for="Date">Event Date:</label><br>
+            <input type="date" id="Date" name="date" required placeholder=""><br><br>
+            
+            <button type="submit">Register</button>
+        </form>
+    </section>
+
+       
+    <script src="JS/script.js"></script>
+    <footer>
+        <iframe src="footer.html" frameborder="0" width="100%" height="80"></iframe>
+    </footer>
+ </body>
+</html>
+
+
