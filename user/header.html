@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../Css/user.css">
   <title>Header</title>
 </head>
 <body>
-  <header >
-    <h1>University Event Management Portal</h1>
-    <img src="../Images/photo_5949603515959721804_y.jpg" alt="University Logo" width="50" height="50" >
-    <nav>
-      <a href="../index.html" target="_parent">Home</a>
-      <a href="../Guest/about.html" target="_parent">About</a>
-      <a href="../Guest/contact.html" target="_parent">contect</a>
-      <a href="../Guest/guestpage.html" target="_parent">Logout</a>
+  <header class="header">
+    <div class="header-left">
+      <img src="../Images/image limu.png" alt="University Logo" class="logo-img">
+      <h1>University Event Management Portal</h1>
+    </div>
+
+    <nav class="header-nav">
+      <a href="../Guest/Home.html" target="_parent">Home</a>
+      <a href="../Guest/about.html"  target="_parent">About</a>
+      <a href="../Guest/contact.html" target="_parent">Contact</a>
+      <a href="../index.html"  target="_parent">Logout</a>
     </nav>
-    <details>
-        <summary>
-            <img src="../Images/nopic.jpg" alt="user" width="30" height="30">
-        </summary>
-        <ul>
-            <li><a href="#" target="_top">Profile></a></li>
-            <li><a href="#" target="_top">Settings></a></li>
-            <li><a href="../Guest/guestpage.html" target="_top">Logout</a></li>
-        </ul>
+
+    <details class="user-menu">
+      <summary>
+        <img src="../Images/nopic.jpg" alt="User" class="user-img">
+      </summary>
+      <ul>
+        <li><a href="#" target="_parent">Profile</a></li>
+        <li><a href="#" target="_parent">Settings</a></li>
+        <li><a href="../index.html" target="_parent">Logout</a></li>
+      </ul>
     </details>
   </header>
 </body>

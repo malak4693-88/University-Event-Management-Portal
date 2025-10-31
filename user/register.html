@@ -1,71 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Meta & Bootstrap -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link 
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../Css/user.css">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css" integrity="sha384-CfCrinSRH2IR6a4e6fy2q6ioOX7O6Mtm1L9vRvFZ1trBncWmMePhzvafv7oIcWiW" crossorigin="anonymous">
-    <link rel="js" href="JS/script.js">
+  <title>University Event Management Portal | Register Event</title>
+</head>
+<body>
 
-    <title></title>
- </head>   
- <body>
-    <header>
-      <iframe src="header.html" frameborder="0" width="100%" height="200"></iframe>
-    </header>
-    <section>
-    <iframe src="sidebar.html" frameborder="0" width="200" height="500"></iframe>
-    </section>
+  <!-- ===== HEADER ===== -->
+  <iframe src="header.html" frameborder="0" width="100%" height="120"scrolling="no"></iframe>
 
-    <section>
-        <form id="Registrationform">
-            
-            <label for="name">Full Name:</label><br>
-            <input type="text" id="name" name="name" required placeholder="Enter your full name" ><br><br>
-           
-            
-            <label for="email">Email:</label><br>
-            <input type="Email" id="email" name="Email" required placeholder="example@gmail.com"><br><br>
-        
-            
-            <label for="StudentID">Student ID:</label><br>
-            <input type="text" id="StudentID" name="StudentID" required pattern="^[0-9]{4}$" placeholder="XXXX"><br><br>
+  <!-- ===== MAIN PAGE LAYOUT ===== -->
+  <div class="container-fluid">
+    <div class="row">
 
-                         
-            <label for="event">Eevent Name:</label><br>
-            <input type="text" id="event" name="event" required placeholder="Enter The name of the event"><br>
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description" required placeholder="A brief description of the event"><br><br>
+      <!-- Sidebar -->
+      <div class="col-md-2 p-0">
+        <iframe src="sidebar.html" frameborder="0" width="100%" height="1000"></iframe>
+      </div>
 
+      <!-- Main Content -->
+      <div class="col-md-10 main-content">
+        <main>
+          <h2>📝 Register for an Event</h2>
+          <p class="text-center mb-4">Fill out the form below to register for your chosen university event.</p>
 
-            <label for="halls"> Select Hall:</label><br>
-            <select id="event" name="event" required>
-                <option value="" disabled selected>--choose a Hall--</option>
-                <option value="hall01">Room 3</option>   
-                <option value="hall02">Room 5</option>
-                <option value="hall03">Pbl 4</option>
-                <option value="hall04">Gaming hall</option>
-                <option value="hall05">Network Lab</option>
-                <option value="hall06">Main hall</option>
-                <option value="hall07">Pbl 23</option>
-                <option value="hall08">Room 14</option>
-            </select><br><br>
-            
-            <label for="Date">Event Date:</label><br>
-            <input type="date" id="Date" name="date" required placeholder=""><br><br>
-            
-            <button type="submit">Register</button>
-        </form>
-    </section>
+          <!-- Registration Form -->
+          <div class="card shadow-sm p-4 mb-5">
+            <form id="Registrationform" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" id="email" class="form-control" placeholder="example@gmail.com" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="StudentID" class="form-label">Student ID</label>
+                  <input type="text" id="StudentID" class="form-control" pattern="^[0-9]{4}$" placeholder="XXXX" required>
+                </div>
+                <div class="col-md-8">
+                  <label for="event" class="form-label">Event Name</label>
+                  <input type="text" id="event" class="form-control" placeholder="Enter the name of the event" required>
+                </div>
+                <div class="col-12">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea id="description" class="form-control" placeholder="A brief description of the event" required></textarea>
+                </div>
+                <div class="col-md-6">
+                  <label for="hall" class="form-label">Select Hall</label>
+                  <select id="hall" class="form-select" required>
+                    <option value="" disabled selected>-- Choose a Hall --</option>
+                    <option>Room 3</option>
+                    <option>Room 5</option>
+                    <option>PBL 4</option>
+                    <option>Gaming Hall</option>
+                    <option>Network Lab</option>
+                    <option>Main Hall</option>
+                    <option>PBL 23</option>
+                    <option>Room 14</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="Date" class="form-label">Event Date</label>
+                  <input type="date" id="Date" class="form-control" required>
+                </div>
+              </div>
 
-       
-    <script src="JS/script.js"></script>
-    <footer>
-        <iframe src="footer.html" frameborder="0" width="100%" height="80"></iframe>
-    </footer>
- </body>
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-purple">Register</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Registered Participants Table -->
+          <section>
+            <h3 class="mb-3">📋 Registered Participants</h3>
+            <div class="table-responsive">
+              <table id="participantsTable" class="table table-striped table-hover text-center">
+                <thead class="table-header">
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Student ID</th>
+                    <th>Event</th>
+                    <th>Hall</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <iframe src="footer.html" frameborder="0" width="100%" height="80"></iframe>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script src="../JS/register.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
-
-

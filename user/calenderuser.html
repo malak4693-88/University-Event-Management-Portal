@@ -1,75 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Calendar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- External CSS -->
+  <link rel="stylesheet" href="../Css/user.css">
+
+  <title>University Event Management Portal | Calendar</title>
 </head>
 <body>
-    <header>
-      <iframe src="header.html" frameborder="0" width="100%" height="200"></iframe>
-    </header>
-    <h1>University Event Management Portal - User</h1>
-    <section>
-    <iframe src="sidebar.html" frameborder="0" width="200" height="500"></iframe>
-    </section>
 
-  <div>
-    <main>
-      <h2>Event Calendar - November 2025</h2>
-      <p>View all your scheduled events for this month.</p>
+  <!-- ===== HEADER ===== -->
+  <iframe src="header.html" frameborder="0" width="100%" height="120" scrolling="no" ></iframe>
 
-      <section>
-        <table>
-          <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-          </tr>
+  <!-- ===== MAIN LAYOUT ===== -->
+  <div class="container-fluid">
+    <div class="row">
 
-          <tr>
-            <td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td>
-          </tr>
-          <tr>
-            <td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td>
-          </tr>
-          <tr>
-            <td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td>
-          </tr>
-          <tr>
-            <td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22<br><small>Tech Talk</small></td><td>23</td>
-          </tr>
-          <tr>
-            <td>24</td><td>25</td><td>26</td><td>27</td><td>28<br><small>Team Meeting</small></td><td>29</td><td>30</td>
-          </tr>
-        </table>
-      </section>
+      <!-- Sidebar -->
+      <div class="col-md-2 p-0">
+        <iframe src="sidebar.html" frameborder="0" width="100%" height="1000"></iframe>
+      </div>
 
-      <br>
-      <section>
-        <h3>Upcoming Events</h3>
-        <ul>
-            <li><strong>22 Nov 2025:</strong> Annual Scientific Day</li>
-            <li><strong>28 Nov 2025:</strong> TCharity Iftar Event</li>
-        </ul>
+      <!-- Main Content -->
+      <div class="col-md-10">
+        <main>
+          <h2>📅 Event Calendar - November 2025</h2>
+          <p class="text-center">View all your scheduled events for this month.</p>
 
-      </section>
+          <!-- Search -->
+          <div class="search-container">
+            <input type="text" id="eventSearch" class="form-control" placeholder="🔍 Search events...">
+          </div>
 
+          <!-- Calendar -->
+          <section>
+            <table id="calendarTable" class="table table-bordered text-center">
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+                <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+                <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22<br><small>Annual Scientific Day</small></td><td>23</td></tr>
+                <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28<br><small>Team Meeting</small></td><td>29</td><td>30</td></tr>
+              </tbody>
+            </table>
+          </section>
 
-    </main>
-
+          <!-- Upcoming Events -->
+          <section id="upcomingEvents">
+            <h3>Upcoming Events</h3>
+            <ul>
+              <li><strong>22 Nov 2025:</strong> Annual Scientific Day</li>
+              <li><strong>28 Nov 2025:</strong> Team Meeting</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
   </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <footer>
-        <iframe src="footer.html" frameborder="0" width="100%" height="80"></iframe>
-    </footer>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <iframe src="footer.html" frameborder="0" width="100%" height="80"></iframe>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script src="../JS/calendar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

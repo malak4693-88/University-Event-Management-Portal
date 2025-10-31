@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../Css/style.css">
+
+  <title>University Event Management Portal | Upcoming Events</title>
+</head>
+<body>
+  <!-- Header -->
+  <iframe src="header.html" frameborder="0" width="100%" height="120" scrolling="no"></iframe>
+
+  <!-- Main Section -->
+  <main class="events-section py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1 class="fw-bold text-primary">Upcoming Events</h1>
+        <p class="text-muted">Explore exciting events happening at our university.</p>
+      </div>
+
+      <!-- Search bar added dynamically by JS -->
+      <hr>
+
+      <!-- Event list -->
+      <div id="event-list" class="d-flex flex-column gap-3">
+
+        <div class="event-box">
+          <h5><strong>Web Design Workshop</strong></h5>
+          <p>📅 Oct 20, 2025</p>
+          <p class="mb-0">Learn how to build beautiful websites with modern web technologies.</p>
+        </div>
+
+        <div class="event-box">
+          <h5><strong>AI & Data Science Seminar</strong></h5>
+          <p>📅 Oct 25, 2025</p>
+          <p class="mb-0">Explore the future of AI and its impact on technology and research.</p>
+        </div>
+
+        <div class="event-box">
+          <h5><strong>Annual Scientific Day</strong></h5>
+          <p>📅 Nov 22, 2025</p>
+          <p class="mb-0">A day full of academic presentations, innovations, and collaboration.</p>
+        </div>
+
+        <div class="event-box">
+          <h5><strong>Science Exhibition</strong></h5>
+          <p>📅 Dec 5, 2025</p>
+          <p class="mb-0">Showcasing creative and scientific projects from our talented students.</p>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-5">
+        <p class="text-muted">
+          To register for an event, please <a href="../user/login.html" class="fw-semibold text-primary text-decoration-none">log in</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <iframe src="footer.html" frameborder="0" width="100%" height="80"></iframe>
+  </footer>
+
+  <script src="../JS/UpcomingE.js"></script>
+</body>
+</html>
