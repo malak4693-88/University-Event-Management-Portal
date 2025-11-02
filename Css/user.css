@@ -271,47 +271,46 @@ p {
   cursor: pointer;
 }
 
-/* =========================================
-   CALENDAR
-========================================= */
+/* ====== CALENDAR TABLE ====== */
 #calendarTable {
-  background-color: var(--white);
-  border: 2px solid var(--dark-purple);
+  background-color: white;
+  border: 2px solid #5856AC;
   border-radius: 10px;
   overflow: hidden;
 }
 
 #calendarTable th {
-  background-color: var(--dark-purple);
-  color: var(--white);
+  background-color: #5856AC;
+  color: white;
   font-weight: 500;
   padding: 10px;
 }
 
 #calendarTable td {
-  background-color: var(--light-purple);
+  background-color: #F4ECFA;
   padding: 15px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
 }
 
 #calendarTable td small {
   display: block;
-  color: var(--dark-purple);
+  color: #5856AC;
   font-size: 0.85em;
-  font-weight: 500;
 }
 
 #calendarTable td:hover {
   background-color: #e3dcf9;
   transform: scale(1.05);
+  cursor: pointer;
 }
 
+/* Highlight today's date from JS */
 #calendarTable td.today {
-  background-color: #cce5ff !important;
+  background-color: #e3dcf9 !important;
   font-weight: bold;
-  border: 2px solid var(--dark-purple);
+  border: 2px solid #5856AC;
 }
+
 
 /* =========================================
    UPCOMING EVENTS
@@ -474,6 +473,12 @@ body.sidebar-open::after {
   opacity: 1;
   visibility: visible;
 }
+/* Sidebar icon size and spacing */
+.sidebar .menu a i {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 18px; /* Icon size */
+}
+
 
 /* =========================================
    RESPONSIVE DESIGN

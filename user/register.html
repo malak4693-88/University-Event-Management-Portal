@@ -24,7 +24,7 @@
 
       <!-- Sidebar -->
       <div class="col-md-2 p-0">
-        <iframe src="sidebar.html" frameborder="0" width="100%" height="1000"></iframe>
+        <iframe src="sidebar.html" frameborder="0" width="100%" height="1400"></iframe>
       </div>
 
       <!-- Main Content -->
@@ -72,6 +72,18 @@
                   </select>
                 </div>
                 <div class="col-md-6">
+                  <label for="Period" class="form-label">Select Period</label>
+                  <select id="Period" class="form-select" required>
+                    <option value="" disabled selected>-- Choose a Period --</option>
+                    <option>8:30-10:00</option>
+                    <option>10:00-12:00</option>
+                    <option>12:00-2:30</option>
+                    <option>2:30-4:00</option>
+                    <option>4:00-6:00</option>
+
+                  </select>
+                </div>
+                <div class="col-md-6">
                   <label for="Date" class="form-label">Event Date</label>
                   <input type="date" id="Date" class="form-control" required>
                 </div>
@@ -96,6 +108,7 @@
                     <th>Event</th>
                     <th>Hall</th>
                     <th>Date</th>
+                    <th>Period</th>
                   </tr>
                 </thead>
                 <tbody></tbody>

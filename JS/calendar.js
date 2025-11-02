@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const cells = document.querySelectorAll("#calendarTable td");
 
     cells.forEach(td => {
-      if (td.textContent.trim().startsWith(day.toString())) {
+      // Match exact day number (handles cells with <br> and <small>)
+      const text = td.textContent.trim().split("\n")[0];
+      if (parseInt(text) === day) {
         td.classList.add("today");
-      }
-    });
+    }
+  })
   }
 
   // ===== Define your events =====

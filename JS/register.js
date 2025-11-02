@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const description = document.getElementById("description").value.trim();
     const hall = document.getElementById("hall").value.trim();
     const date = document.getElementById("Date").value;
+    const period = document.getElementById("Period").value;
 
-    if (!name  || !email  || !studentID || !eventName || !hall || !date) {
+    // Check if all required fields are filled
+    if (!name || !email || !studentID || !eventName || !hall || !date || !period) {
       alert("⚠️ Please fill out all required fields!");
       return;
     }
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <td>${eventName}</td>
       <td>${hall}</td>
       <td>${date}</td>
+      <td>${period}</td> <!-- Added period to the table -->
     `;
     tableBody.appendChild(newRow);
     form.reset();
