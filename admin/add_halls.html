@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Add hall| LIMU</title>
+</head>
+<body>
+  
+  <!-- <div data-include="components/header.html"></div> -->
+
+  <main class="content">
+    <section class="panel card">
+      <header class="panel-Title"><h3>Add New Hall</h3></header>      
+      <!-- <div class="panel-header">
+        <h2 class="page-title">Add New Event</h2>
+      </div>   -->
+      <form id="addHallForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hallName">Hall Name</label>
+              <input type="text" id="hallName" name="hallName" required>
+            </div>
+            <div class="form-group">
+              <label for="capacity">Capacity</label>
+              <input type="number" id="capacity" name="capacity" required>
+            </div>
+            <div class="form-group">
+              <label for="availability">Availability</label>
+              <select id="availability" name="availability" required>
+                <option value="" disabled selected>Select availability</option>
+                <option value="available">Available</option>
+                <option value="unavailable">Occupied</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn small">Add Hall</button>
+            <button type="reset" class="btn small">Reset</button>  
+          </div>
+        </form>         
+    </section>
+  </main>
+  <div data-include="components/footer.html"></div>
+  <script src="js/includeHTML.js"></script>
+  <script src="js/script.js"></script>      
+</body>
+</html>

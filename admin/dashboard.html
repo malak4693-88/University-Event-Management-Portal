@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LIMU — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="darkmode">
+
+  <div class="app">
+
+    <div data-include="components/sidebar.html"></div>
+    <!-- ==================== MAIN AREA ==================== -->
+    <div class="main">      
+      <div data-include="components/header.html"></div>
+      <!-- ==================== CONTENT ==================== -->
+        <main class="content" id="content">
+
+          <!-- Cards Section (should be converted to bootstrap) -->
+          <section class="cards" aria-label="Key metrics">
+            <article class="card">
+              <div class="card-body">
+                <div class="card-title">Total Users</div>
+                <div class="card-value" id="totalUsers">—</div>
+                <div class="card-meta">Active accounts</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body">
+                <div class="card-title">Events This Month</div>
+                <div class="card-value" id="eventsMonth">—</div>
+                <div class="card-meta">Upcoming & scheduled</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body">
+                <div class="card-title">Pending Requests</div>
+                <div class="card-value" id="pendingReq">—</div>
+                <div class="card-meta">Needs review</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-body">
+                <div class="card-title">Ongoing Events</div>
+                <div class="card-value" id="ongoing">—</div>
+                <div class="card-meta">Live now</div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Recent Events Table -->
+          <section class="panel">
+            <header class="panel-header">
+              <h3>Recent Events</h3>
+              <div class="panel-actions">
+                <button class="btn small" id="addEventBtn" type="button">Add Event</button>
+
+                <div id="filter">
+                  <label for="filterSelect">Filter by:</label>
+                  <select name="filter" id="filterSelect" aria-label="Filter by" onchange="handleFilterChange()">
+                    <option value="all">All</option>
+                    <option value="live">Live</option>
+                    <option value="pending">Pending</option>
+                    <option value="upcoming">Upcoming</option>
+                  </select>
+                  </div>
+
+              </div>
+            </header>
+
+            <div class="panel-body">
+              <table class="table" aria-label="Recent events table">
+                <thead>
+                  <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="recentEvents">
+                  <!-- filled by JS -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+
+     <div data-include="components/footer.html"></div>
+
+    </div>
+  </div>
+
+  <script src="js/includeHTML.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>

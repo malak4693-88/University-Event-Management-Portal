@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><img src="assets/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="menuIcon"></button>
+          <div class="page-title-system-title">
+            <h3 class="page-title">Dashboard</h3>
+            <p class="page-sub">University Event Management System</p>
+          </div>
+         
+        </div>
+
+        <div class="topbar-right">
+
+          <button class="icon-btn" id="themeBtn" title="Toggle theme" aria-pressed="false">
+            <img src="assets/light_mode_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg" alt="sunIcon">
+          </button>
+
+          <button class="icon-btn" id="fsBtn" title="Toggle fullscreen">
+            <img src="assets/fit_screen_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="fitScreenIcon">
+          </button>
+
+          <div class="dropdown" id="notifWrap">
+            <button class="icon-btn" id="notifBtn" aria-expanded="false">
+              <img src="assets/notifications_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="notificationIcon"><span class="badge" id="notifCount">3</span>
+            </button>
+            <div class="dropdown-menu" id="notifMenu">
+              <h4>Notifications</h4>
+              <!-- <ul>
+                <li>Student registered</li>
+                <li>Venue availability updated</li>
+                <li>New message from Admin</li>
+              </ul> -->
+              <!-- <a href="notifications.html" class="see-all">View all</a> -->
+            </div>
+          </div>
+
+          <div class="dropdown" id="profileWrap">
+            <button class="profile-btn" id="profileBtn">
+              <img src="assets/person_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="avatar" class="avatar" />
+              <span class="username">Admin</span>
+            </button>
+            <div class="dropdown-menu" id="profileMenu">
+              <a href="#">Profile</a> <br>
+              <a href="#">Settings</a>
+              <hr />
+              <a href="login.html">Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+</body>
+</html>

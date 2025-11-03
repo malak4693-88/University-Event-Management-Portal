@@ -1,0 +1,200 @@
+:root {
+  --limu-blue: #003149;
+  --limu-red: #ec2125;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #0b2540;
+  --muted: #6b7280;
+  --border: #e6eaef;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+}
+
+/* Wrapper: left logo + right login */
+.login-wrapper {
+  display: flex;
+  background: var(--card);
+  box-shadow: 0 8px 20px rgba(2,6,23,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Left side */
+.login-left {
+  flex: 1;
+  background: var(--limu-blue);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.login-left .uni-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.login-left .uni-name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Right side: login form */
+.login-right {
+  flex: 1;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-right .login-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--limu-blue);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Login form container */
+#login-Containor {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.05);
+}
+
+/* Inputs */
+#login-Form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+#login-Form input:focus {
+  border-color: var(--limu-blue);
+  box-shadow: 0 0 0 2px rgba(0,49,73,0.2);
+}
+
+/* Show password button */
+.show-containor {
+  position: relative;
+}
+
+.show-btn {
+  position: absolute;
+  right: 2px;
+  top: 25%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.show-btn img {
+  width: 17px;
+  height: 17px;
+}
+
+/* Submit button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--limu-blue);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #005580;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Accessibility: focus outlines */
+#login-Form input:focus,
+.show-btn:focus,
+.submit-btn:focus {
+  outline: 3px solid rgba(0,49,73,0.12);
+  outline-offset: 2px;
+}
+
+/* Responsive */
+
+/* Medium screens */
+@media (max-width: 1000px) {
+  .login-wrapper { max-width: 900px; }
+  .login-left { padding: 36px 22px; }
+  .login-right { padding: 32px 26px; }
+  .login-left .uni-logo { width: 120px; }
+  .login-left .uni-name { font-size: 1.6rem; }
+  .login-right .login-title { font-size: 1.35rem; margin-bottom: 20px; }
+}
+
+/* Small screens */
+@media (max-width: 800px) {
+  .login-wrapper {
+    flex-direction: column;
+    max-width: 460px;
+    width: 100%;
+  }
+
+  .login-left {
+    display: none !important;
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .login-right {
+    width: 100%;
+    flex: none;
+    padding: 24px 18px;
+  }
+
+  .login-right .login-title { font-size: 1.25rem; margin-bottom: 16px; }
+  #login-Containor { padding: 16px; }
+  #login-Form input { padding: 10px; font-size: 0.98rem; }
+  .submit-btn { padding: 10px; font-size: 0.98rem; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  body { padding: 12px; }
+  .login-right { padding: 18px 12px; }
+  #login-Containor { padding: 12px; }
+  #login-Form input { padding: 10px; font-size: 0.95rem; }
+  .submit-btn { padding: 10px; font-size: 0.98rem; }
+}

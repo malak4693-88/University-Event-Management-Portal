@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LIMU — Pending Requests</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app">
+
+   <div data-include="components/sidebar.html"></div>
+
+   <div class="main">
+
+      <div data-include="components/header.html"></div>
+
+      <main class="content">
+
+        <section class="panel">
+          
+          <header class="panel-header"><h3>Pending Requests</h3></header>
+
+          <div class="panel-body">
+
+            <table class="table" id="pendingTable">
+              <thead>
+                <tr>
+                  <th>Request</th>
+                  <th>Requested By</th>
+                  <th>Date</th>
+                  <th>Comment</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+            <tbody><!-- filled by JS --></tbody>
+
+          </table>
+          </div>
+        </section>
+
+      </main>
+
+      <div data-include="components/footer.html"></div>
+    </div>
+  </div>
+
+  <script src="js/includeHTML.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

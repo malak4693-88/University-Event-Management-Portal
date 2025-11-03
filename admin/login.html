@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <!-- Left side: logo -->
+    <div class="login-left">
+      <img src="assets/limuc.png" alt="LIMU" class="uni-logo">
+      <h2 class="uni-name">LIMU</h2>
+    </div>
+    <!-- Right side: login form -->
+    <div class="login-right">
+      <h1 class="login-title">University Event Management System</h1>
+      <div id="login-Containor">
+        <form id="login-Form">
+          <input id="email" type="email" required placeholder="Email"><br><br>
+          <div class="show-containor">
+            <input id="password" type="password" required placeholder="password">
+            <button type="button" class="show-btn" data-target="password" aria-pressed="false" aria-label="Toggle password visibility">
+              <img class="show-icon" src="assets/show.png" alt="show icon">
+            </button><br><br>
+          </div>                    
+          <button type="submit" class="submit-btn" id="login">Login</button>
+        </form>
+      </div>
+   </div>
+  </div><!-- End of login-wrapper -->
+
+  <script src="js/loginScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Room Booking</title>
+</head>
+<body>
+
+    <div class="app">
+
+        <div data-include="components/sidebar.html"></div>   
+
+            <div class="main"> 
+
+                <div data-include="components/header.html"></div>
+
+                    <main class="content">
+
+                        <table class="table" id="appointTable">
+                            <thead>
+                                <tr><th>Day</th><th>Date</th><th>Period</th></tr>
+                            </thead>
+                            <tbody>
+                                    <!-- filled by JS -->
+                            </tbody>
+                        </table>
+
+                        <button class="btn small" id="appont-btn">add a booking</button>
+                    </main>
+
+                <div data-include="components/footer.html"></div>
+
+        </div>
+
+    </div>
+
+  <script src="js/includeHTML.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
