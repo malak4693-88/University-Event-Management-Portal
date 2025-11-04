@@ -510,3 +510,15 @@ body.sidebar-open::after {
     font-size: 1.3em;
   }
 }
+
+
+
+.header {
+  position: fixed;       /* Keeps it stuck at the top */
+  top: 0;                /* Aligns it with the top of the page */
+  left: 0;               /* Stretches it from the left edge */
+  width: 100%;           /* Makes sure it spans the full width */
+  z-index: 1000;         /* Keeps it above other elements */
+  background-color: white; /* Optional — helps avoid transparency issues */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional — adds a clean shadow */
+}
