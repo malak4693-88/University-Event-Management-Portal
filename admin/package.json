@@ -1,0 +1,12 @@
+{
+  "name": "project2-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "sass layout/main.scss:assets/main.css --no-source-map --style=expanded",
+    "watch:css": "sass --watch layout/main.scss:assets/main.css --style=expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.73.1"
+  }
+}
