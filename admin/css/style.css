@@ -286,11 +286,6 @@ body,.card,input,textarea,select{transition:background 0.3s ease,color 0.3s ease
 */
 
 
-
-
-
-
-
 /* ==================== Filter Styles ==================== */
 
 #filterSelect {
@@ -355,13 +350,3 @@ label[for="filterSelect"] {
     margin-bottom: 4px;
   }
 }
-
-
-
-
-
-
-
-
-
- 
