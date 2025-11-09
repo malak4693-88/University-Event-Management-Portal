@@ -674,8 +674,10 @@ Then apply these styles to .label. */
     margin: 12px;
   }
 
+}
+
   /* make tables horizontally scrollable instead of breaking layout */
-  .table {
+  /* .table {
     display: block;
     width: 100%;
     overflow-x: auto;
@@ -688,10 +690,10 @@ Then apply these styles to .label. */
     width: 100%;
     table-layout: fixed;
   }
-}
+} */
 
 /* ensure long content wraps and forms remain usable on narrow screens */
-.form-row {
+/* .form-row {
   gap: 10px;
 }
 .form-row .half {
@@ -701,24 +703,25 @@ Then apply these styles to .label. */
 .form-group select,
 .form-group textarea {
   font-size: 0.95rem;
-}
+} */
 
 /* Table responsiveness and fixes */
-.table-responsive {
+/* .table-responsive {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 10px;
   background: transparent;
-}
+} */
+
 .table {
   width: 100%;
-  min-width: 720px; /* allows horizontal scroll on small viewports */
+  min-width: 720px; 
   border-collapse: collapse;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 10px;
-  table-layout: fixed; /* helps consistent column sizing and ellipsis */
+  table-layout: fixed; 
 }
 
 /* default cell behavior: truncate long content, unless opt-in to wrap */
@@ -733,12 +736,12 @@ Then apply these styles to .label. */
 }
 
 /* opt-in class to allow wrapping for long text cells */
-.table td.wrap,
+/* .table td.wrap,
 .table th.wrap {
   white-space: normal;
   word-break: break-word;
   overflow: visible;
-}
+} */
 
 /* simpler, reliable hover state (no box-shadow that can overflow) */
 .table tbody tr:hover {
@@ -746,9 +749,9 @@ Then apply these styles to .label. */
 }
 
 /* ensure last row doesn't show unnecessary border */
-.table tr:last-child td {
+/* .table tr:last-child td {
   border-bottom: 0;
-}
+} */
 
 
 /* ==================== Filter Styles ==================== */
