@@ -1,173 +1,159 @@
 // Shared JS for pages: theme, sidebar, dropdowns, fake data, calendar
 
 function initApp() {
-  // Guard so initApp only runs once
-  if (window.__limu_initialized) return;
-  window.__limu_initialized = true;
+    // Guard so initApp only runs once
+    if (window.__limu_initialized) return;
+    window.__limu_initialized = true;
 
-  (function () {
+    (function () {
 
-    // Elements that may appear on each page (some pages won't have them, so guard)
-    const body = document.body;
-    const themeBtns = document.querySelectorAll('#themeBtn, #themeBtnUsers, #themeBtnCal');
-    const fsBtns = document.querySelectorAll('#fsBtn, #fsBtnUsers, #fsBtnCal');
-    const sidebarToggles = document.querySelectorAll('#sidebarToggle, #sidebarToggleUsers, #sidebarToggleCal');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const pageTitle = document.querySelector('.page-title');
-    const pageSub = document.querySelector('.page-sub');
-    const addEventBtn = document.getElementById('addEventBtn');
-    const select = document.getElementById('eventLoc');
-    const addHall = document.querySelector('#hall-btn');
+        // Elements that may appear on each page (some pages won't have them, so guard)
+        const body = document.body;
+        const themeBtns = document.querySelectorAll('#themeBtn, #themeBtnUsers, #themeBtnCal');
+        const fsBtns = document.querySelectorAll('#fsBtn, #fsBtnUsers, #fsBtnCal');
+        const sidebarToggles = document.querySelectorAll('#sidebarToggle, #sidebarToggleUsers, #sidebarToggleCal');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageTitle = document.querySelector('.page-title');
+        const pageSub = document.querySelector('.page-sub');
+        const addEventBtn = document.getElementById('addEventBtn');
+        const select = document.getElementById('eventLoc');
+        const addHall = document.querySelector('#hall-btn');
 
-    // Set current year in all pages
-    document.querySelectorAll('#year-dashboard, #year-users, #year-cal, #year-pending, #year-events').forEach(el => {
-      if (el) el.textContent = new Date().getFullYear();
-    });
+        // Set current year in all pages
+        document.querySelectorAll('#year-dashboard, #year-users, #year-cal, #year-pending, #year-events').forEach(el => {
+        if (el) el.textContent = new Date().getFullYear();
+        });
 
-  // --------------------------------------------------------------------------
-  // Theme toggle
-  // --------------------------------------------------------------------------
+        // --------------------------------------------------------------------------
+        // Theme toggle
+        // --------------------------------------------------------------------------
   
-      function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      body.setAttribute('data-theme', theme);
+        // Selectors
+        const themeIcon = document.querySelector('#themeBtn img');
+        const html = document.documentElement;
 
-      // Update aria-pressed
-      document.querySelectorAll('[aria-pressed]').forEach(b =>
-        b.setAttribute('aria-pressed', theme === 'dark')
-      );
+        // Core function
+        function setTheme(theme) {
+            html.dataset.theme = theme;
+            body.dataset.theme = theme;
 
-      // Update button colors
-      themeBtns.forEach(b => {
-        if (!b) return;
-        if (theme === 'dark') {
-          const username = document.querySelector('.username');
-          b.style.color = username ? getComputedStyle(username).color : '';
-        } else {
-          b.style.color = '';
+        // Accessibility
+        document.querySelectorAll('[aria-pressed]').forEach(btn =>
+            btn.setAttribute('aria-pressed', theme === 'dark')
+        );
+
+        // Update button color
+        const usernameColor = getComputedStyle(document.querySelector('.username') || body).color;
+        themeBtns.forEach(btn => (btn.style.color = theme === 'dark' ? usernameColor : ''));
+
+        // Update icon
+        if (themeIcon) {
+            themeIcon.src = `assets/${theme}_mode_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg`;
         }
-      });
 
-      // Swap theme icon
-      const themeBtnIcon = document.querySelector('#themeBtn img');
-      if (themeBtnIcon) {
-        themeBtnIcon.src =
-          theme === 'dark'
-            ? 'assets/dark_mode_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg'
-            : 'assets/light_mode_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg';
-      }
+        // Save choice
+        localStorage.setItem('limu-theme', theme);
+}
 
-      localStorage.setItem('limu-theme', theme);
-    }
+// Initialize theme
+setTheme(localStorage.getItem('limu-theme') || 'light');
 
-    // Load saved theme or default to light
-    const saved = localStorage.getItem('limu-theme') || 'light';
-    setTheme(saved);
+// Toggle theme on click
+themeBtns.forEach(btn =>
+  btn.addEventListener('click', () => {
+    const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+  })
+);
 
-    // Toggle theme on button click
-    themeBtns.forEach(btn => {
-      if (!btn) return;
-      btn.addEventListener('click', () => {
-        const current =
-          document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        setTheme(current === 'dark' ? 'light' : 'dark');
-      });
-    });
 
-  // --------------------------------------------------------------------------
-  // Fullscreen toggle
-  // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// Fullscreen toggle
+// --------------------------------------------------------------------------
 
-    fsBtns.forEach(btn => {
-      if (!btn) return;
-      btn.addEventListener('click', async () => {
-        try {
-          if (!document.fullscreenElement) {
-            await document.documentElement.requestFullscreen();
-          } else {
-            await document.exitFullscreen();
-          }
-        } catch (e) {
+fsBtns.forEach(btn => {
+    if (!btn) return;
+        btn.addEventListener('click', async () => {
+            try {
+                    if (!document.fullscreenElement) {
+                    await document.documentElement.requestFullscreen();
+                    } else await document.exitFullscreen();
+                } catch (e) {
           console.warn('Fullscreen error', e);
         }
       });
     });
 
-  // --------------------------------------------------------------------------
-  // Sidebar toggle
-  // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// Sidebar toggle
+// --------------------------------------------------------------------------
 
     sidebarToggles.forEach(t => {
       if (!t) return;
+
       t.addEventListener('click', e => {
-        const sidebar =
-          document.getElementById('sidebar') ||
-          document.getElementById('sidebarUsers') ||
-          document.getElementById('sidebarCal');
 
         if (window.innerWidth <= 880) {
+
           // Mobile: add overlay class on root
           document.querySelector('.app').classList.toggle('open-overlay');
           const s = document.querySelector('.sidebar');
           if (s) s.classList.toggle('open');
+
         } else {
           const s = document.querySelector('.sidebar');
           if (s) s.classList.toggle('collapsed');
         }
+
       });
     });
-
 
   // --------------------------------------------------------------------------
   // Sidebar active state + page title update
   // --------------------------------------------------------------------------
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-      });
-    });
-
     const pageMeta = {
-      dashboard: { title: 'Dashboard', sub: 'University Event Management System' },
-      users: { title: 'Users', sub: 'Manage user accounts and roles' },
-      calendar: { title: 'Calendar', sub: 'View scheduled events' },
-      pending: { title: 'Pending Requests', sub: 'Requests needing review' },
-      events: { title: 'Ongoing Events', sub: 'Current and upcoming events' },
-      halls: { title: 'Halls', sub: 'Manage and Edit Halls' },
-      booking:{title:'Bookings', sub:'Manage Bookings'}
+        dashboard: { title: 'Dashboard', sub: 'University Event Management System' },
+        users: { title: 'Users', sub: 'Manage user accounts and roles' },
+        calendar: { title: 'Calendar', sub: 'View scheduled events' },
+        pending: { title: 'Pending Requests', sub: 'Requests needing review' },
+        events: { title: 'Ongoing Events', sub: 'Current and upcoming events' },
+        halls: { title: 'Halls', sub: 'Manage and Edit Halls' },
+        booking:{title:'Bookings', sub:'Manage Bookings'}
     };
 
     function setPageMeta(key) {
-      const meta = pageMeta[key] || { title: 'Dashboard', sub: '' };
-      const titleEl = document.querySelector('.page-title');
-      const subEl = document.querySelector('.page-sub');
-      if (titleEl) titleEl.textContent = meta.title;
-      if (subEl) subEl.textContent = meta.sub;
-      document.title = `LIMU — ${meta.title}`;
+
+        // Looks up the metadata for the given key in pageMeta.
+        // If the key doesn’t exist, it defaults to { title: 'Dashboard', sub: '' }.
+        const meta = pageMeta[key] || { title: 'Dashboard', sub: '' };
+
+        const titleEl = document.querySelector('.page-title');
+        const subEl = document.querySelector('.page-sub');
+
+        if (titleEl) titleEl.textContent = meta.title;
+        if (subEl) subEl.textContent = meta.sub;
+
+        // Updates the browser tab title to include the page title.
+        document.title = `LIMU — ${meta.title}`;
     }
 
-    // Update on nav click
-    navLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        const pageKey = link.getAttribute('data-page');
-        if (pageKey) setPageMeta(pageKey);
-      });
-    });
-
     // Initial set on page load
-    (function () {
-      let key = null;
-      const active = document.querySelector('.nav-link.active');
-      if (active) key = active.getAttribute('data-page');
-      if (!key) {
-        const name = window.location.pathname.split('/').pop().replace('.html', '');
-        if (name === '' || name === 'index') key = 'dashboard';
-        else key = name;
-      }
-      setPageMeta(key);
-    })();
+
+        // This starts an Immediately Invoked Function Expression (IIFE).
+        // It means the function runs right away without being called elsewhere.    
+        (function () {
+            let key = null;
+            const active = document.querySelector('.nav-link.active');
+            if (active) key = active.getAttribute('data-page');
+            if (!key) {
+                const name = window.location.pathname.split('/').pop().replace('.html', '');
+                if (name === '' || name === 'index') key = 'dashboard';
+                else key = name;
+            }
+            setPageMeta(key);
+        })();
+
 
   // --------------------------------------------------------------------------
   // DROPDOWNS
@@ -420,24 +406,6 @@ function initApp() {
 
         calRoot.appendChild(el);
       }
-    }
-
-  // --------------------------------------------------------------------------
-  // Add Event button navigation
-  // --------------------------------------------------------------------------
-
-    if (addEventBtn) {
-      addEventBtn.addEventListener('click', () => {
-        window.location.href = 'add_event.html';
-      });
-    }
-  // --------------------------------------------------------------------------
-  // Add Hall button navigation
-  //
-    if(addHall){
-      addHall.addEventListener('click',() => {
-        window.location.href = 'add_halls.html'
-      })
     }
 
   // --------------------------------------------------------------------------
